@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 3   # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api-container
+        image: december:latest  # Replace with your actual Docker image and tag
+        ports:
+        - containerPort: 80    # Adjust the container port as needed
